@@ -15,13 +15,15 @@ export default function ScannerPage() {
  scanner.render(
     async (decodedText) => {
         setScanResult(decodedText);
-         const { error } = await supabase.from('presensi').insert([{ kode: decodedText }]);
+         alert('Mencoba menyimpan: ' + decodedText);
+            const { error } = await supabase.from('presensi').insert([{ kode: decodedText }]);
         if (error) {
-            console.error('Gagal menyimpan data ke Supabase:', error);
+        alert('Gagal: ' + error.message);
+         console.error('Gagal menyimpan data:', error);
         } else {
-            console.log('Data berhasil disimpan ke Supabase');
+            alert('Berhasil menyimpan data');
+            console.log('Data berhasil disimpan');
         }
-
      }, 
      (error) => {  
         
