@@ -16,7 +16,7 @@ export default function ScannerPage() {
     async (decodedText) => {
         setScanResult(decodedText);
          alert('Mencoba menyimpan: ' + decodedText);
-            const { error } = await supabase.from('presensi').insert([{ kode: decodedText }]);
+            const { error } = await supabase.from('presensi').insert([{ kode_token: decodedText }]);
         if (error) {
         alert('Gagal: ' + error.message);
          console.error('Gagal menyimpan data:', error);
